@@ -1,0 +1,660 @@
+[
+    {
+        "country": "Polska",
+        "airports": [
+            {
+                "name": "Lotnisko Chopina w Warszawie",
+                "english_name": "Warsaw Chopin Airport",
+                "city": "Warszawa",
+                "iata": "WAW",
+                "coordinates": {
+                    "latitude": 52.165833,
+                    "longitude": 20.967222
+                }
+            },
+            {
+                "name": "Międzynarodowy Port Lotniczy im. Jana Pawła II Kraków-Balice",
+                "english_name": "John Paul II International Airport Kraków-Balice",
+                "city": "Kraków",
+                "iata": "KRK",
+                "coordinates": {
+                    "latitude": 50.077778,
+                    "longitude": 19.784722
+                }
+            }
+        ]
+    },
+    {
+        "country": "USA",
+        "airports": [
+            {
+                "name": "Hartsfield–Jackson Atlanta International Airport",
+                "city": "Atlanta",
+                "iata": "ATL",
+                "coordinates": {
+                    "latitude": 33.636687,
+                    "longitude": -84.428056
+                }
+            },
+            {
+                "name": "Dallas Fort Worth International Airport",
+                "city": "Dallas",
+                "iata": "DFW",
+                "coordinates": {
+                    "latitude": 32.896944,
+                    "longitude": -97.038056
+                }
+            },
+            {
+                "name": "Denver International Airport",
+                "city": "Denver",
+                "iata": "DEN",
+                "coordinates": {
+                    "latitude": 39.861667,
+                    "longitude": -104.673056
+                }
+            },
+            {
+                "name": "Chicago O'Hare International Airport",
+                "city": "Chicago",
+                "iata": "ORD",
+                "coordinates": {
+                    "latitude": 41.978611,
+                    "longitude": -87.904722
+                }
+            },
+            {
+                "name": "Los Angeles International Airport",
+                "city": "Los Angeles",
+                "iata": "LAX",
+                "coordinates": {
+                    "latitude": 33.9425,
+                    "longitude": -118.408056
+                }
+            },
+            {
+                "name": "John F. Kennedy International Airport",
+                "city": "Nowy Jork",
+                "iata": "JFK",
+                "coordinates": {
+                    "latitude": 40.639722,
+                    "longitude": -73.778889
+                }
+            },
+            {
+                "name": "Harry Reid International Airport",
+                "city": "Las Vegas",
+                "iata": "LAS",
+                "coordinates": {
+                    "latitude": 36.08,
+                    "longitude": -115.152222
+                }
+            },
+            {
+                "name": "Miami International Airport",
+                "city": "Miami",
+                "iata": "MIA",
+                "coordinates": {
+                    "latitude": 25.793333,
+                    "longitude": -80.290556
+                }
+            },
+            {
+                "name": "Orlando International Airport",
+                "city": "Orlando",
+                "iata": "MCO",
+                "coordinates": {
+                    "latitude": 28.429444,
+                    "longitude": -81.308889
+                }
+            },
+            {
+                "name": "Charlotte Douglas International Airport",
+                "city": "Charlotte",
+                "iata": "CLT",
+                "coordinates": {
+                    "latitude": 35.213889,
+                    "longitude": -80.943056
+                }
+            },
+            {
+                "name": "Seattle–Tacoma International Airport",
+                "city": "Seattle",
+                "iata": "SEA",
+                "coordinates": {
+                    "latitude": 47.448889,
+                    "longitude": -122.309444
+                }
+            },
+            {
+                "name": "Phoenix Sky Harbor International Airport",
+                "city": "Phoenix",
+                "iata": "PHX",
+                "coordinates": {
+                    "latitude": 33.434167,
+                    "longitude": -112.011667
+                }
+            },
+            {
+                "name": "Newark Liberty International Airport",
+                "city": "Nowy Jork",
+                "iata": "EWR",
+                "coordinates": {
+                    "latitude": 40.6925,
+                    "longitude": -74.168611
+                }
+            },
+            {
+                "name": "San Francisco International Airport",
+                "city": "San Francisco",
+                "iata": "SFO",
+                "coordinates": {
+                    "latitude": 37.618889,
+                    "longitude": -122.375
+                }
+            },
+            {
+                "name": "George Bush Intercontinental Airport",
+                "city": "Houston",
+                "iata": "IAH",
+                "coordinates": {
+                    "latitude": 29.984444,
+                    "longitude": -95.341389
+                }
+            },
+            {
+                "name": "General Edward Lawrence Logan International Airport",
+                "city": "Boston",
+                "iata": "BOS",
+                "coordinates": {
+                    "latitude": 42.363056,
+                    "longitude": -71.006389
+                }
+            },
+            {
+                "name": "Fort Lauderdale–Hollywood International Airport",
+                "city": "Miami",
+                "iata": "FLL",
+                "coordinates": {
+                    "latitude": 26.0725,
+                    "longitude": -80.152778
+                }
+            }
+        ]
+    },
+    {
+        "country": "Chiny",
+        "airports": [
+            {
+                "name": "香港國際機場",
+                "english_name": "Hong Kong International Airport",
+                "city": "Hong Kong",
+                "iata": "HKG",
+                "coordinates": {
+                    "latitude": 22.308889,
+                    "longitude": 113.914444
+                }
+            },
+            {
+                "name": "臺灣桃園國際機場",
+                "english_name": "Taiwan Taoyuan International Airport",
+                "city": "Tajwan",
+                "iata": "TPE",
+                "coordinates": {
+                    "latitude": 25.076389,
+                    "longitude": 121.223889
+                }
+            },
+            {
+                "name": "北京大兴国际机场",
+                "english_name": "Beijing Daxing International Airport",
+                "city": "Pekin",
+                "iata": "PKX",
+                "coordinates": {
+                    "latitude": 39.509167,
+                    "longitude": 116.410556
+                }
+            },
+            {
+                "name": "北京首都国际机场",
+                "english_name": "Beijing Capital International Airport",
+                "city": "Pekin",
+                "iata": "PEK",
+                "coordinates": {
+                    "latitude": 40.0725,
+                    "longitude": 116.5975
+                }
+            },
+            {
+                "name": "广州白云国际机场",
+                "english_name": "Guangzhou Baiyun International Airport",
+                "city": "Kanton",
+                "iata": "CAN",
+                "coordinates": {
+                    "latitude": 23.3925,
+                    "longitude": 113.298889
+                }
+            },
+            {
+                "name": "成都双流国际机场",
+                "english_name": "Chengdu Shuangliu International Airport",
+                "city": "Chengdu",
+                "iata": "CTU",
+                "coordinates": {
+                    "latitude": 30.578333,
+                    "longitude": 103.946944
+                }
+            },
+            {
+                "name": "深圳宝安国际机场",
+                "english_name": "Shenzhen Bao'an International Airport",
+                "city": "Shenzhen",
+                "iata": "SZX",
+                "coordinates": {
+                    "latitude": 22.639444,
+                    "longitude": 113.810833
+                }
+            },
+            {
+                "name": "重庆江北国际机场",
+                "english_name": "Chongqing Jiangbei International Airport",
+                "city": "Chongqing",
+                "iata": "CKG",
+                "coordinates": {
+                    "latitude": 29.719167,
+                    "longitude": 106.641667
+                }
+            }
+        ]
+    },
+    {
+        "country": "Włochy",
+        "airports": [
+            {
+                "name": "Aeroporto di Roma-Fiumicino",
+                "english_name": "Leonardo da Vinci–Fiumicino Airport",
+                "city": "Rzym",
+                "iata": "FCO",
+                "coordinates": {
+                    "latitude": 41.800278,
+                    "longitude": 12.238889
+                }
+            }
+        ]
+    },
+    {
+        "country": "Arabia Saudyjska",
+        "airports": [
+            {
+                "name": "مطار الملك عبدالعزيز الدولي",
+                "english_name": "King Abdulaziz International Airport",
+                "city": "Dżudda",
+                "iata": "JED",
+                "coordinates": {
+                    "latitude": 21.679444,
+                    "longitude": 39.156667
+                }
+            }
+        ]
+    },
+    {
+        "country": "Brazylia",
+        "airports": [
+            {
+                "name": "Aeropuerto Internacional de São Paulo-Guarulhos",
+                "english_name": "São Paulo/Guarulhos International Airport",
+                "city": "São Paulo",
+                "iata": "GRU",
+                "coordinates": {
+                    "latitude": -23.435556,
+                    "longitude": -46.473056
+                }
+            }
+        ]
+    },
+    {
+        "country": "Katar",
+        "airports": [
+            {
+                "name": "مطار حمد الدولي",
+                "english_name": "Hamad International Airport",
+                "city": "Doha",
+                "iata": "DOH",
+                "coordinates": {
+                    "latitude": 25.273056,
+                    "longitude": 51.608056
+                }
+            }
+        ]
+    },
+    {
+        "country": "Indonezja",
+        "airports": [
+            {
+                "name": "Bandar Udara Internasional Soekarno–Hatta",
+                "english_name": "Soekarno-Hatta International Airport",
+                "city": "Dżakarta",
+                "iata": "CGK",
+                "coordinates": {
+                    "latitude": -6.125556,
+                    "longitude": 106.655833
+                }
+            }
+        ]
+    },
+    {
+        "country": "Korea Południowa",
+        "airports": [
+            {
+                "name": "인천국제공항",
+                "english_name": "Incheon International Airport",
+                "city": "Seul",
+                "iata": "ICN",
+                "coordinates": {
+                    "latitude": 37.463333,
+                    "longitude": 126.44
+                }
+            },
+            {
+                "name": "김포국제공항",
+                "english_name": "Gimpo International Airport",
+                "city": "Seul",
+                "iata": "GMP",
+                "coordinates": {
+                    "latitude": 37.558056,
+                    "longitude": 126.790556
+                }
+            }
+        ]
+    },
+    {
+        "country": "Meksyk",
+        "airports": [
+            {
+                "name": "Aeropuerto Internacional Benito Juárez",
+                "english_name": "Benito Juárez International Airport",
+                "city": "Meksyk",
+                "iata": "MEX",
+                "coordinates": {
+                    "latitude": 19.436111,
+                    "longitude": -99.071944
+                }
+            },
+            {
+                "name": "Aeropuerto Internacional de Cancún",
+                "english_name": "Cancun International Airport",
+                "city": "Cancún",
+                "iata": "CUN",
+                "coordinates": {
+                    "latitude": 21.036667,
+                    "longitude": -86.876944
+                }
+            }
+        ]
+    },
+    {
+        "country": "Francja",
+        "airports": [
+            {
+                "name": "Aéroport de Paris-Charles-de-Gaulle",
+                "english_name": "Paris Charles de Gaulle Airport",
+                "city": "Paryż",
+                "iata": "CDG",
+                "coordinates": {
+                    "latitude": 49.009722,
+                    "longitude": 2.547778
+                }
+            },
+            {
+                "name": "Aéroport de Paris-Orly",
+                "english_name": "Paris Orly Airport",
+                "city": "Paryż",
+                "iata": "ORY",
+                "coordinates": {
+                    "latitude": 48.723333,
+                    "longitude": 2.379444
+                }
+            }
+        ]
+    },
+    {
+        "country": "Zjednoczone Emiraty Arabskie",
+        "airports": [
+            {
+                "name": "مطار دبي الدولي",
+                "english_name": "Dubai International Airport",
+                "city": "Dubaj",
+                "iata": "DXB",
+                "coordinates": {
+                    "latitude": 25.252778,
+                    "longitude": 55.364444
+                }
+            }
+        ]
+    },
+    {
+        "country": "Turcja",
+        "airports": [
+            {
+                "name": "İstanbul Havalimanı",
+                "english_name": "Istanbul Airport",
+                "city": "Stambuł",
+                "iata": "IST",
+                "coordinates": {
+                    "latitude": 41.262222,
+                    "longitude": 28.727778
+                }
+            },
+            {
+                "name": "İstanbul Sabiha Gökçen Uluslararası Havalimanı",
+                "english_name": "Istanbul Sabiha Gökçen International Airport",
+                "city": "Stambuł",
+                "iata": "SAW",
+                "coordinates": {
+                    "latitude": 40.898333,
+                    "longitude": 29.309167
+                }
+            },
+            {
+                "name": "Antalya Havalimanı",
+                "english_name": "Antalya Airport",
+                "city": "Antalya",
+                "iata": "AYT",
+                "coordinates": {
+                    "latitude": 36.900278,
+                    "longitude": 30.792778
+                }
+            }
+        ]
+    },
+    {
+        "country": "Wielka Brytania",
+        "airports": [
+            {
+                "name": "Heathrow Airport",
+                "city": "Londyn",
+                "iata": "LHR",
+                "coordinates": {
+                    "latitude": 51.4775,
+                    "longitude": -0.461389
+                }
+            },
+            {
+                "name": "Gatwick Airport",
+                "city": "Londyn",
+                "iata": "LGW",
+                "coordinates": {
+                    "latitude": 51.148056,
+                    "longitude": -0.190278
+                }
+            }
+        ]
+    },
+    {
+        "country": "Singapur",
+        "airports": [
+            {
+                "name": "சிங்கப்பூர் சாங்கி விமான நிலையம்",
+                "english_name": "Singapore Changi Airport",
+                "city": "Singapur",
+                "iata": "SIN",
+                "coordinates": {
+                    "latitude": 1.359167,
+                    "longitude": 103.989444
+                }
+            }
+        ]
+    },
+    {
+        "country": "Kanada",
+        "airports": [
+            {
+                "name": "Lester B. Pearson International Airport",
+                "city": "Toronto",
+                "iata": "YYZ",
+                "coordinates": {
+                    "latitude": 43.676667,
+                    "longitude": -79.630556
+                }
+            }
+        ]
+    },
+    {
+        "country": "Indie",
+        "airports": [
+            {
+                "name": "Indira Gandhi International Airport",
+                "city": "Delhi",
+                "iata": "DEL",
+                "coordinates": {
+                    "latitude": 28.568611, 
+                    "longitude": 77.112222
+                }
+            },
+            {
+                "name": "Chhatrapati Shivaji Maharaj International Airport",
+                "city": "Mumbaj",
+                "iata": "BOM",
+                "coordinates": {
+                    "latitude": 19.088611,
+                    "longitude": 72.868056
+                }
+            }
+        ]
+    },
+    {
+        "country": "Holandia",
+        "airports": [
+            {
+                "name": "Koninklijke Luchthaven Schiphol",
+                "english_name": "Amsterdam Airport Schiphol",
+                "city": "Amsterdam",
+                "iata": "AMS",
+                "coordinates": {
+                    "latitude": 52.3,
+                    "longitude": 4.765
+                }
+            }
+        ]
+    },
+    {
+        "country": "Hiszpania",
+        "airports": [
+            {
+                "name": "Aeropuerto Adolfo Suárez Madrid–Barajas",
+                "english_name": "Adolfo Suárez Madrid–Barajas Airport",
+                "city": "Madryt",
+                "iata": "MAD",
+                "coordinates": {
+                    "latitude": 40.472222,
+                    "longitude": -3.560833
+                }
+            },
+            {
+                "name": "Aeropuerto Josep Tarradellas Barcelona-El Prat",
+                "english_name": "Josep Tarradellas Barcelona–El Prat Airport",
+                "city": "Barcelona",
+                "iata": "BCN",
+                "coordinates": {
+                    "latitude": 41.296944,
+                    "longitude": 2.078333
+                }
+            }
+        ]
+    },
+    {
+        "country": "Japonia",
+        "airports": [
+            {
+                "name": "東京国際空港",
+                "english_name": "Tokyo Haneda International Airport",
+                "city": "Tokio",
+                "iata": "HND",
+                "coordinates": {
+                    "latitude": 35.553333,
+                    "longitude": 139.781111
+                }
+            },
+            {
+                "name": "成田国際空港",
+                "english_name": "Tokyo-Narita International Airport",
+                "city": "Tokio",
+                "iata": "NRT",
+                "coordinates": {
+                    "latitude": 35.765278,
+                    "longitude": 140.385556
+                }
+            }
+        ]
+    },
+    {
+        "country": "Niemcy",
+        "airports": [
+            {
+                "name": "Flughafen Frankfurt Main",
+                "english_name": "Frankfurt Airport",
+                "city": "Frankfurt nad Menem",
+                "iata": "FRA",
+                "coordinates": {
+                    "latitude": 50.033333,
+                    "longitude": 8.570556
+                }
+            },
+            {
+                "name": "Flughafen München",
+                "english_name": "Munich Airport",
+                "city": "Monachium",
+                "iata": "MUC",
+                "coordinates": {
+                    "latitude": 48.353889,
+                    "longitude": 11.786111
+                }
+            }
+        ]
+    },
+    {
+        "country": "Rosja",
+        "airports": [
+            {
+                "name": "Международный аэропорт Шереметьево имени А. С. Пушкина",
+                "english_name": "Sheremetyevo Alexander S. Pushkin International Airport",
+                "city": "Moskwa",
+                "iata": "SVO",
+                "coordinates": {
+                    "latitude": 55.972778,
+                    "longitude": 37.414722
+                }
+            },
+            {
+                "name": "Домодедово аэропорт",
+                "english_name": "Moscow Domodedovo Airport",
+                "city": "Moskwa",
+                "iata": "DME",
+                "coordinates": {
+                    "latitude": 55.408611,
+                    "longitude": 37.906111
+                }
+            }
+        ]
+    }
+]
