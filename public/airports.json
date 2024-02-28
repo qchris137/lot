@@ -1,5 +1,20 @@
 [
     {
+        "country": "Korea Północna",
+        "airports": [
+            {
+                "name": "평양 국제비행장",
+                "english_name": "Pyongyang International Airport",
+                "city": "Pjongjang",
+                "iata": "FNJ",
+                "coordinates": {
+                    "latitude": 39.223889,
+                    "longitude": 125.67
+                }
+            }
+        ]
+    },
+    {
         "country": "Polska",
         "airports": [
             {
