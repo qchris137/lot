@@ -72,24 +72,6 @@ export function AirportDateErrors({
         ) : null
       }
       {
-        // departure date before today
-        departureDate && departureDate <= new Date() ? (
-          <div className="flex flex-row items-center justify-center px-2">
-            <MdErrorOutline className="mr-1" />
-            Dzień wylotu z przeszłości
-          </div>
-        ) : null
-      }
-      {
-        // arrival date before today
-        arrivalDate && arrivalDate <= new Date() ? (
-          <div className="flex flex-row items-center justify-center px-2">
-            <MdErrorOutline className="mr-1" />
-            Dzień przylotu z przeszłości
-          </div>
-        ) : null
-      }
-      {
         // departure date after arrival date
         arrivalDate && departureDate && arrivalDate < departureDate ? (
           <div className="flex flex-row items-center justify-center px-2">
