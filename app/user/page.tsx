@@ -7,6 +7,7 @@ import React, { Suspense } from "react";
 import { nameWithIata } from "../types/Airport";
 import { LuBaby } from "react-icons/lu";
 import { MdErrorOutline, MdFace } from "react-icons/md";
+import Link from "next/link";
 const airports_list = airports.flatMap((value) => value.airports);
 
 function HeaderText({ useLocalizedNames }: any) {
@@ -34,10 +35,19 @@ function HeaderText({ useLocalizedNames }: any) {
   );
 }
 
+function isValidEmail(email: string): boolean {
+  return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(
+    email
+  );
+}
+
 export default function Page() {
   const [useLocalizedNames, setUseLocalizedNames] =
     React.useState<boolean>(true);
+  const [errors, setErrors] = React.useState<boolean>(true);
   const [email, setEmail] = React.useState<string>("");
+  const [name, setName] = React.useState<string>("");
+  const [lastName, setLastName] = React.useState<string>("");
 
   return (
     <Suspense>
@@ -74,30 +84,54 @@ export default function Page() {
           </div>
           <div className="flex items-center justify-center w-screen my-1">
             Podaj imię:{" "}
-            <input className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-1/2" />
+            <input
+              onChange={(event) => setName(event.target.value)}
+              className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-1/2"
+              required
+            />
           </div>
           <div className="flex items-center justify-center w-screen my-1">
             Podaj nazwisko:{" "}
-            <input className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-1/2" />
+            <input
+              onChange={(event) => setLastName(event.target.value)}
+              className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-1/2"
+              required
+            />
           </div>
           <div className="flex items-center justify-center w-screen my-1">
             Podaj adres email:{" "}
             <input
-              onChange={(event) => setEmail(event.target.value)}
+              onChange={(event) => {
+                setEmail(event.target.value);
+                setErrors(!isValidEmail(email));
+              }}
               type="email"
               className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-1/2"
             />
           </div>
-          {!/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(
-            email
-          ) ? (
+          {!isValidEmail(email) ? (
             <div className="flex flex-row items-center justify-center px-2 dark:text-red-400 text-red-600">
               <MdErrorOutline className="mr-1" />
               Zły email
             </div>
           ) : null}
         </div>
-        <footer>&copy; 2024, Krzysztof Antonowski</footer>
+        <footer>
+          <Link
+            className={`dark:text-slate-900 text-slate-100 p-1 rounded-md text-center ${
+              errors
+                ? "pointer-events-none cursor-not-allowed bg-slate-400"
+                : "dark:bg-sky-300 bg-sky-500"
+            }`}
+            href={{
+              pathname: "/user",
+              query: {},
+            }}
+          >
+            Dalej
+          </Link>
+          &copy; 2024, Krzysztof Antonowski
+        </footer>
       </main>
     </Suspense>
   );
