@@ -6,7 +6,7 @@ import airports from "@/public/airports.json";
 import React, { Suspense } from "react";
 import { nameWithIata } from "../types/Airport";
 import { LuBaby } from "react-icons/lu";
-import { MdFace } from "react-icons/md";
+import { MdErrorOutline, MdFace } from "react-icons/md";
 const airports_list = airports.flatMap((value) => value.airports);
 
 function HeaderText({ useLocalizedNames }: any) {
@@ -17,14 +17,16 @@ function HeaderText({ useLocalizedNames }: any) {
       Podróż z{" "}
       <span className="dark:bg-slate-800 dark:text-slate-100 bg-slate-200 text-slate-900 p-2 rounded-md mx-2 no-underline text-base font-normal w-1/4">
         {nameWithIata(
-          airports_list.find((value) => value.iata == searchParams.get('from'))!,
+          airports_list.find(
+            (value) => value.iata == searchParams.get("from")
+          )!,
           useLocalizedNames
         )}
       </span>{" "}
       do{" "}
       <span className="dark:bg-slate-800 dark:text-slate-100 bg-slate-200 text-slate-900 p-2 rounded-md mx-2 no-underline text-base font-normal w-1/4">
         {nameWithIata(
-          airports_list.find((value) => value.iata == searchParams.get('to'))!,
+          airports_list.find((value) => value.iata == searchParams.get("to"))!,
           useLocalizedNames
         )}
       </span>
@@ -80,8 +82,20 @@ export default function Page() {
           </div>
           <div className="flex items-center justify-center w-screen my-1">
             Podaj adres email:{" "}
-            <input type="email" className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-1/2" />
+            <input
+              onChange={(event) => setEmail(event.target.value)}
+              type="email"
+              className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-1/2"
+            />
           </div>
+          {!/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(
+            email
+          ) ? (
+            <div className="flex flex-row items-center justify-center px-2">
+              <MdErrorOutline className="mr-1" />
+              Nie podano dnia wylotu
+            </div>
+          ) : null}
         </div>
         <footer>&copy; 2024, Krzysztof Antonowski</footer>
       </main>
