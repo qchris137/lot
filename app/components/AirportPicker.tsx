@@ -3,6 +3,7 @@
 import React from "react";
 import { Airport, nameWithIata } from "../types/Airport";
 import { FaPlane } from "react-icons/fa6";
+import ChangeLocalizationButton from "./ChangeLocalizationButton";
 
 interface AirportPickerProps {
   airports: {
@@ -47,7 +48,7 @@ export default function AirportPicker({
   return (
     <div
       id="airportlocations"
-      className="w-screen flex flex-col md:flex-row items-center justify-center pb-2 text-center"
+      className="w-screen flex flex-col md:flex-row items-center justify-center pb-2 text-center p-2"
     >
       <div className="flex w-screen flex-row items-center justify-center text-center p-2 ">
         <select
@@ -107,12 +108,10 @@ export default function AirportPicker({
         </select>
       </div>
 
-      <button
-        className="dark:bg-slate-800 dark:text-slate-100 bg-slate-200 text-slate-900 rounded-md ml-2 max-md:my-2 p-2 md:w-1/5 text-base font-normal"
-        onClick={handleLocalizedNamesChange}
-      >
-        Zmień na nazwy {useLocalizedNames ? "angielskie" : "lokalne"}
-      </button>
+      <ChangeLocalizationButton
+        onChange={handleLocalizedNamesChange}
+        useLocalizedNames={useLocalizedNames}
+      />
     </div>
   );
 }

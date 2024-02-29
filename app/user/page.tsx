@@ -85,7 +85,7 @@ function Content() {
             onChange={(event) => setAdults(Number(event.target.value))}
             max={100}
             min={0}
-            defaultValue={0}
+            defaultValue={1}
           />
         </div>
         <div className="flex items-center justify-center w-screen my-1">
