@@ -16,7 +16,7 @@ export function AirportDateErrors({
   departureAirport,
   departureDate,
 }: AirportDateErrorsProps) {
-  if (!arrivalAirport || !departureAirport || !arrivalDate || !departureDate) {
+  if (!arrivalAirport || !departureAirport || !arrivalDate || !departureDate || departureDate < new Date() || arrivalDate < new Date()) {
     onErrors(true);
   } else {
     onErrors(false);
@@ -61,6 +61,24 @@ export function AirportDateErrors({
           <div className='flex flex-row items-center justify-center px-2'>
             <MdErrorOutline className="mr-1" />
             Nie podano dnia i godziny wylotu
+          </div>
+        ) : null
+      }
+      {
+        // departure date before today
+        (departureDate && departureDate < new Date()) ? (
+          <div className='flex flex-row items-center justify-center px-2'>
+            <MdErrorOutline className="mr-1" />
+            Dzień i godzina wylotu z przeszłości
+          </div>
+        ) : null
+      }
+      {
+        // arrival date before today
+        (arrivalDate && arrivalDate < new Date()) ? (
+          <div className='flex flex-row items-center justify-center px-2'>
+            <MdErrorOutline className="mr-1" />
+            Dzień i godzina przylotu z przeszłości
           </div>
         ) : null
       }
