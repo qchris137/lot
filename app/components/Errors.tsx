@@ -16,14 +16,7 @@ export function AirportDateErrors({
   departureAirport,
   departureDate,
 }: AirportDateErrorsProps) {
-  if (
-    !arrivalAirport ||
-    !departureAirport ||
-    !arrivalDate ||
-    !departureDate ||
-    departureDate < new Date() ||
-    arrivalDate < new Date()
-  ) {
+  if (!arrivalAirport || !departureAirport || !arrivalDate || !departureDate) {
     onErrors(true);
   } else {
     onErrors(false);
