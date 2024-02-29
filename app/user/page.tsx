@@ -80,7 +80,7 @@ export default function Page() {
           </div>
           <div className="flex items-center justify-center w-screen my-1">
             Podaj adres email:{" "}
-            <input className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-1/2" />
+            <input type="email" className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-1/2" />
           </div>
         </div>
         <footer>&copy; 2024, Krzysztof Antonowski</footer>
