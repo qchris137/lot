@@ -91,9 +91,9 @@ export default function Page() {
           {!/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(
             email
           ) ? (
-            <div className="flex flex-row items-center justify-center px-2">
+            <div className="flex flex-row items-center justify-center px-2 dark:text-red-400 text-red-600">
               <MdErrorOutline className="mr-1" />
-              Nie podano dnia wylotu
+              Zły email
             </div>
           ) : null}
         </div>
