@@ -51,7 +51,7 @@ export function AirportDateErrors({
         !arrivalDate ? (
           <div className='flex flex-row items-center justify-center px-2'>
             <MdErrorOutline className="mr-1" />
-            Nie podano dnia i godziny przylotu
+            Nie podano dnia przylotu
           </div>
         ) : null
       }
@@ -60,7 +60,7 @@ export function AirportDateErrors({
         !departureDate ? (
           <div className='flex flex-row items-center justify-center px-2'>
             <MdErrorOutline className="mr-1" />
-            Nie podano dnia i godziny wylotu
+            Nie podano dnia wylotu
           </div>
         ) : null
       }
@@ -69,7 +69,7 @@ export function AirportDateErrors({
         (departureDate && departureDate < new Date()) ? (
           <div className='flex flex-row items-center justify-center px-2'>
             <MdErrorOutline className="mr-1" />
-            Dzień i godzina wylotu z przeszłości
+            Dzień wylotu z przeszłości
           </div>
         ) : null
       }
@@ -78,7 +78,7 @@ export function AirportDateErrors({
         (arrivalDate && arrivalDate < new Date()) ? (
           <div className='flex flex-row items-center justify-center px-2'>
             <MdErrorOutline className="mr-1" />
-            Dzień i godzina przylotu z przeszłości
+            Dzień przylotu z przeszłości
           </div>
         ) : null
       }
