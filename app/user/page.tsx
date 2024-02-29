@@ -55,7 +55,7 @@ export default function Page() {
         <div className="flex flex-col items-center" id="content">
           Wybierz ilość pasażerów:
           <div className="flex items-center justify-center w-screen mb-8">
-            <LuBaby /> Dzieci
+            <LuBaby className="pr-2" /> Dzieci
             <input
               className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-16 text-center"
               type="number"
@@ -63,13 +63,13 @@ export default function Page() {
               min="0"
               defaultValue={0}
             />
-            <MdFace /> Dorośli
+            <MdFace className="pr-2" /> Dorośli
             <input
               className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-16 text-center"
               type="number"
               max="100"
               min="1"
-              defaultValue={0}
+              defaultValue={1}
             />
           </div>
           <div className="flex items-center justify-center w-screen my-1">
