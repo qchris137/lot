@@ -47,70 +47,71 @@ export default function AirportPicker({
   return (
     <div
       id="airportlocations"
-      className="w-screen flex flex-row items-center justify-center pb-2"
+      className="w-screen flex flex-col md:flex-row items-center justify-center pb-2 text-center"
     >
-      <select
-        className="dark:bg-slate-800 dark:text-slate-100 bg-slate-200 text-slate-900 mx-4 rounded-md p-1 w-1/3"
-        defaultValue={"undefined"}
-        onChange={handleDepartureChange}
-      >
-        <option value="undefined" disabled>
-          Wybierz lotnisko...
-        </option>
-        {airports.map((country) => (
-          <optgroup
-            key={country.country}
-            id={country.country}
-            label={country.country}
-          >
-            {country.airports.map((airport) => (
-              <option
-                value={airport.iata}
-                disabled={selectedArrival == airport.iata}
-                key={airport.iata}
-              >
-                {nameWithIata(airport, useLocalizedNames)}
-              </option>
-            ))}
-          </optgroup>
-        ))}
-      </select>
+      <div className="flex w-screen flex-row items-center justify-center text-center p-2 ">
+        <select
+          className="dark:bg-slate-800 dark:text-slate-100 bg-slate-200 text-slate-900 p-2 rounded-md mx-2 no-underline text-base font-normal w-1/2"
+          defaultValue={"undefined"}
+          onChange={handleDepartureChange}
+        >
+          <option value="undefined" disabled>
+            Wybierz lotnisko...
+          </option>
+          {airports.map((country) => (
+            <optgroup
+              key={country.country}
+              id={country.country}
+              label={country.country}
+            >
+              {country.airports.map((airport) => (
+                <option
+                  value={airport.iata}
+                  disabled={selectedArrival == airport.iata}
+                  key={airport.iata}
+                >
+                  {nameWithIata(airport, useLocalizedNames)}
+                </option>
+              ))}
+            </optgroup>
+          ))}
+        </select>
 
-      <FaPlane />
+        <FaPlane className="mx-4" />
 
-      <select
-        className="dark:bg-slate-800 dark:text-slate-100 bg-slate-200 text-slate-900 mx-4 rounded-md p-1 w-1/3"
-        defaultValue={"undefined"}
-        onChange={handleArrivalChange}
-      >
-        <option value="undefined" disabled>
-          Wybierz lotnisko...
-        </option>
-        {airports.map((country) => (
-          <optgroup
-            key={country.country}
-            id={country.country}
-            label={country.country}
-          >
-            {country.airports.map((airport) => (
-              <option
-                value={airport.iata}
-                disabled={selectedDeparture == airport.iata}
-                key={airport.iata}
-              >
-                {nameWithIata(airport, useLocalizedNames)}
-              </option>
-            ))}
-          </optgroup>
-        ))}
-      </select>
+        <select
+          className="dark:bg-slate-800 dark:text-slate-100 bg-slate-200 text-slate-900 p-2 rounded-md mx-2 no-underline text-base font-normal w-1/2"
+          defaultValue={"undefined"}
+          onChange={handleArrivalChange}
+        >
+          <option value="undefined" disabled>
+            Wybierz lotnisko...
+          </option>
+          {airports.map((country) => (
+            <optgroup
+              key={country.country}
+              id={country.country}
+              label={country.country}
+            >
+              {country.airports.map((airport) => (
+                <option
+                  value={airport.iata}
+                  disabled={selectedDeparture == airport.iata}
+                  key={airport.iata}
+                >
+                  {nameWithIata(airport, useLocalizedNames)}
+                </option>
+              ))}
+            </optgroup>
+          ))}
+        </select>
+      </div>
 
       <button
-        className="dark:bg-slate-800 dark:text-slate-100 bg-slate-200 text-slate-900 rounded-md p-1 w-1/5"
+        className="dark:bg-slate-800 dark:text-slate-100 bg-slate-200 text-slate-900 rounded-md ml-2 max-md:my-2 p-2 md:w-1/5 text-base font-normal"
         onClick={handleLocalizedNamesChange}
       >
-        Zmień na nazwy&nbsp;
-        {useLocalizedNames ? "angielskie" : "lokalne"}
+        Zmień na nazwy {useLocalizedNames ? "angielskie" : "lokalne"}
       </button>
     </div>
   );

@@ -8,11 +8,15 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import DatePicker from "./components/DatePicker";
 import { AirportDateErrors } from "./components/Errors";
+import BigHeaderText from "./components/BigHeaderText";
 
 const AirportMap = dynamic(() => import("./components/AirportMap"), {
   ssr: false,
   loading: () => (
-    <div className="flex flex-col items-center justify-center" role="status">
+    <div
+      className="flex flex-col items-center justify-center text-center"
+      role="status"
+    >
       <svg
         aria-hidden="true"
         className="w-8 h-8 text-slate-100 animate-spin dark:text-slate-900 fill-sky-500"
@@ -81,8 +85,9 @@ export default function Home({}: any) {
 
   // ui
   return (
-    <main className="flex flex-col p-4 items-center justify-between min-h-screen w-screen dark:bg-slate-900 dark:text-slate-100 bg-slate-100 text-slate-900">
+    <main className="flex flex-col p-4 items-center min-h-screen w-screen dark:bg-slate-900 dark:text-slate-100 bg-slate-100 text-slate-900">
       <header>
+        <BigHeaderText text="Chiński LOT" />
         <AirportPicker
           airports={airports}
           onArrivalChange={handleArrivalChange}
@@ -108,7 +113,7 @@ export default function Home({}: any) {
           useLocalizedNames={useLocalizedNames}
         />
       </section>
-      <footer className="flex flex-col">
+      <footer className="flex flex-col mt-auto">
         <Link
           className={`dark:text-slate-900 text-slate-100 p-1 rounded-md text-center ${
             errors
@@ -116,13 +121,13 @@ export default function Home({}: any) {
               : "dark:bg-sky-300 bg-sky-500"
           }`}
           href={{
-            pathname: '/user',
+            pathname: "/user",
             query: {
               from: departureAirport?.iata,
               to: arrivalAirport?.iata,
               depart: departureDate?.valueOf(),
-              arrive: arrivalDate?.valueOf()
-            }
+              arrive: arrivalDate?.valueOf(),
+            },
           }}
           onClick={(_) => {
             if (arrivalAirport?.iata == "TPE") {

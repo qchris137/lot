@@ -6,131 +6,112 @@ import airports from "@/public/airports.json";
 import React, { Suspense } from "react";
 import { nameWithIata } from "../types/Airport";
 import { LuBaby } from "react-icons/lu";
-import { MdErrorOutline, MdFace } from "react-icons/md";
+import { MdFace } from "react-icons/md";
 import Link from "next/link";
+import { UserDataErrors } from "../components/Errors";
+import { FaPlaneArrival, FaPlaneDeparture } from "react-icons/fa6";
+import BigHeaderText from "../components/BigHeaderText";
+import NumberInput from "../components/NumberInput";
+import ChangeLocalizationButton from "../components/ChangeLocalizationButton";
+import TextInput from "../components/TextInput";
 const airports_list = airports.flatMap((value) => value.airports);
 
-function HeaderText({ useLocalizedNames }: any) {
-  const searchParams = useSearchParams();
-
+function HeaderText({ useLocalizedNames, searchParams }: any) {
   return (
-    <>
-      Podróż z{" "}
-      <span className="dark:bg-slate-800 dark:text-slate-100 bg-slate-200 text-slate-900 p-2 rounded-md mx-2 no-underline text-base font-normal w-1/4">
+    <div
+      id="headertext"
+      className="flex flex-col md:flex-row items-center justify-center w-screen"
+    >
+      <FaPlaneDeparture className="m-2 mr-0" />
+      <span className="dark:bg-slate-800 dark:text-slate-100 bg-slate-200 text-slate-900 p-2 rounded-md mx-2 no-underline text-base font-normal w-1/2">
         {nameWithIata(
           airports_list.find(
             (value) => value.iata == searchParams.get("from")
           )!,
           useLocalizedNames
         )}
-      </span>{" "}
-      do{" "}
-      <span className="dark:bg-slate-800 dark:text-slate-100 bg-slate-200 text-slate-900 p-2 rounded-md mx-2 no-underline text-base font-normal w-1/4">
+      </span>
+      <FaPlaneArrival className="m-2 mr-0" />
+      <span className="dark:bg-slate-800 dark:text-slate-100 bg-slate-200 text-slate-900 p-2 rounded-md mx-2 no-underline text-base font-normal w-1/2">
         {nameWithIata(
           airports_list.find((value) => value.iata == searchParams.get("to"))!,
           useLocalizedNames
         )}
       </span>
-    </>
-  );
-}
-
-function isValidEmail(email: string): boolean {
-  return /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(
-    email
+    </div>
   );
 }
 
 export default function Page() {
+  const searchParams = useSearchParams();
+
   const [useLocalizedNames, setUseLocalizedNames] =
     React.useState<boolean>(true);
   const [errors, setErrors] = React.useState<boolean>(true);
   const [email, setEmail] = React.useState<string>("");
   const [name, setName] = React.useState<string>("");
   const [lastName, setLastName] = React.useState<string>("");
+  const [adults, setAdults] = React.useState<number>(1);
+  const [kids, setKids] = React.useState<number>(0);
 
   return (
     <Suspense>
-      <main className="flex flex-col p-4 items-center justify-between min-h-screen w-screen dark:bg-slate-900 dark:text-slate-100 bg-slate-100 text-slate-900">
-        <header className="flex items-center justify-center text-xl font-bold w-screen">
-          <HeaderText useLocalizedNames={useLocalizedNames} />
-          <button
-            className="dark:bg-slate-800 dark:text-slate-100 bg-slate-200 text-slate-900 rounded-md p-2 w-1/5 text-base font-normal"
-            onClick={() => setUseLocalizedNames(!useLocalizedNames)}
+      <main className="flex flex-col p-4 items-center min-h-screen w-screen dark:bg-slate-900 dark:text-slate-100 bg-slate-100 text-slate-900">
+        <header>
+          <BigHeaderText text="Dane osobowe" />
+          <div
+            className="flex w-screen flex-col md:flex-row items-center justify-center text-xl font-bold text-center p-2"
+            id="tripinfo"
           >
-            Zmień na nazwy&nbsp;
-            {useLocalizedNames ? "angielskie" : "lokalne"}
-          </button>
+            <HeaderText
+              useLocalizedNames={useLocalizedNames}
+              searchParams={searchParams}
+            />
+            <ChangeLocalizationButton
+              onChange={(bool) => setUseLocalizedNames(!useLocalizedNames)}
+              useLocalizedNames={useLocalizedNames}
+            />
+          </div>
         </header>
-        <div className="flex flex-col items-center" id="content">
+        <div className="flex flex-col items-center justify-center" id="content">
           Wybierz ilość pasażerów:
-          <div className="flex items-center justify-center w-screen mb-8">
-            <LuBaby className="mr-2" /> Dzieci
-            <input
-              className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-16 text-center"
-              type="number"
-              max="100"
-              min="0"
+          <div className="flex items-center justify-center w-screen my-1">
+            <LuBaby className="mr-1" /> Dzieci
+            <NumberInput
+              onChange={(event) => setKids(Number(event.target.value))}
+              max={100}
+              min={0}
               defaultValue={0}
             />
-            <MdFace className="mr-2" /> Dorośli
-            <input
-              className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-16 text-center"
-              type="number"
-              max="100"
-              min="1"
-              defaultValue={1}
+            <MdFace className="mr-1" /> Dorośli
+            <NumberInput
+              onChange={(event) => setAdults(Number(event.target.value))}
+              max={100}
+              min={0}
+              defaultValue={0}
             />
           </div>
           <div className="flex items-center justify-center w-screen my-1">
-            Podaj imię:{" "}
-            <input
-              onChange={(event) => {
-                setName(event.target.value);
-                if (name.length != 0) {
-                  setErrors(false);
-                } else {
-                  setErrors(true);
-                }
-              }}
-              className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-1/2"
-              required
-            />
+            Podaj imię: <TextInput onChange={(value) => setName(value)} />
           </div>
           <div className="flex items-center justify-center w-screen my-1">
             Podaj nazwisko:{" "}
-            <input
-              onChange={(event) => {
-                setLastName(event.target.value);
-                if (lastName.length != 0) {
-                  setErrors(false);
-                } else {
-                  setErrors(true);
-                }
-              }}
-              className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-1/2"
-              required
-            />
+            <TextInput onChange={(value) => setLastName(value)} />
           </div>
           <div className="flex items-center justify-center w-screen my-1">
             Podaj adres email:{" "}
-            <input
-              onChange={(event) => {
-                setEmail(event.target.value);
-                setErrors(!isValidEmail(email));
-              }}
-              type="email"
-              className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-1/2"
-            />
+            <TextInput onChange={(value) => setEmail(value)} />
           </div>
-          {!isValidEmail(email) ? (
-            <div className="flex flex-row items-center justify-center px-2 dark:text-red-400 text-red-600">
-              <MdErrorOutline className="mr-1" />
-              Zły email
-            </div>
-          ) : null}
+          <UserDataErrors
+            adults={adults}
+            kids={kids}
+            email={email}
+            firstName={name}
+            lastName={lastName}
+            onErrors={setErrors}
+          />
         </div>
-        <footer className="flex flex-col">
+        <footer className="flex flex-col mt-auto">
           <Link
             className={`dark:text-slate-900 text-slate-100 p-1 rounded-md text-center ${
               errors
@@ -139,7 +120,17 @@ export default function Page() {
             }`}
             href={{
               pathname: "/summary",
-              query: {},
+              query: {
+                name: name,
+                lastName: lastName,
+                email: email,
+                kids: kids,
+                adults: adults,
+                from: searchParams.get("from"),
+                to: searchParams.get("to"),
+                depart: searchParams.get("depart"),
+                arrive: searchParams.get("arrive"),
+              },
             }}
           >
             Dalej

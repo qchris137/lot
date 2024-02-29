@@ -43,8 +43,8 @@ export default function AirportMap({
     );
 
     for (var i = zoom; i < 20; i++) {
-      zoom = i
-      if (delta >= 180.0 / Math.pow(2, zoom - (70 / 96))) {
+      zoom = i;
+      if (delta >= 180.0 / Math.pow(2, zoom - 70 / 96)) {
         break;
       }
     }
@@ -72,71 +72,73 @@ export default function AirportMap({
   }
 
   return (
-    <MapContainer
-      preferCanvas={true}
-      center={center as LatLngExpression}
-      zoom={zoom}
-      scrollWheelZoom={true}
-      style={{
-        height: "70vh",
-        width: "98vw",
-        margin: "1vw",
-      }}
-    >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {
-        /* arrival airport */
-        arrivalAirport ? (
-          <Marker
-            position={[
-              arrivalAirport.coordinates.latitude,
-              arrivalAirport.coordinates.longitude,
-            ]}
-          >
-            <Popup>{nameWithIata(arrivalAirport, useLocalizedNames)}</Popup>
-          </Marker>
-        ) : null
-      }
-      {
-        /* departure airport */
-        departureAirport ? (
-          <Marker
-            position={[
-              departureAirport.coordinates.latitude,
-              departureAirport.coordinates.longitude,
-            ]}
-          >
-            <Popup>{nameWithIata(departureAirport, useLocalizedNames)}</Popup>
-          </Marker>
-        ) : null
-      }
-      {
-        /* line between airports */
-        departureAirport && arrivalAirport ? (
-          <Polyline
-            positions={[
-              [
-                departureAirport.coordinates.latitude,
-                departureAirport.coordinates.longitude,
-              ],
-              [
+    <div className="w-screen">
+      <MapContainer
+        preferCanvas={true}
+        center={center as LatLngExpression}
+        zoom={zoom}
+        scrollWheelZoom={false}
+        style={{
+          height: "65vh",
+          width: "98vw",
+          margin: "1vw",
+        }}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {
+          /* arrival airport */
+          arrivalAirport ? (
+            <Marker
+              position={[
                 arrivalAirport.coordinates.latitude,
                 arrivalAirport.coordinates.longitude,
-              ],
-            ]}
-          />
-        ) : null
-      }
-      <SetView center={center} zoom={zoom} />
-    </MapContainer>
+              ]}
+            >
+              <Popup>{nameWithIata(arrivalAirport, useLocalizedNames)}</Popup>
+            </Marker>
+          ) : null
+        }
+        {
+          /* departure airport */
+          departureAirport ? (
+            <Marker
+              position={[
+                departureAirport.coordinates.latitude,
+                departureAirport.coordinates.longitude,
+              ]}
+            >
+              <Popup>{nameWithIata(departureAirport, useLocalizedNames)}</Popup>
+            </Marker>
+          ) : null
+        }
+        {
+          /* line between airports */
+          departureAirport && arrivalAirport ? (
+            <Polyline
+              positions={[
+                [
+                  departureAirport.coordinates.latitude,
+                  departureAirport.coordinates.longitude,
+                ],
+                [
+                  arrivalAirport.coordinates.latitude,
+                  arrivalAirport.coordinates.longitude,
+                ],
+              ]}
+            />
+          ) : null
+        }
+        <SetView center={center} zoom={zoom} />
+      </MapContainer>
+    </div>
   );
 }
 
 function SetView({ center, zoom }: any) {
-  const map = useMap()
-  map.setView(center, zoom)
-  return null
+  const map = useMap();
+  map.setView(center, zoom);
+  return null;
 }
