@@ -42,7 +42,7 @@ function HeaderText({ useLocalizedNames, searchParams }: any) {
   );
 }
 
-export default function Page() {
+function Content() {
   const [useLocalizedNames, setUseLocalizedNames] =
     React.useState<boolean>(true);
   const [errors, setErrors] = React.useState<boolean>(true);
@@ -53,89 +53,93 @@ export default function Page() {
   const [kids, setKids] = React.useState<number>(0);
 
   return (
-    <Suspense>
-      <main className="flex flex-col p-4 items-center min-h-screen w-screen dark:bg-slate-900 dark:text-slate-100 bg-slate-100 text-slate-900">
-        <header>
-          <BigHeaderText text="Dane osobowe" />
-          <div
-            className="flex w-screen flex-col md:flex-row items-center justify-center text-xl font-bold text-center p-2"
-            id="tripinfo"
-          >
-            <HeaderText
-              useLocalizedNames={useLocalizedNames}
-              searchParams={useSearchParams()}
-            />
-            <ChangeLocalizationButton
-              onChange={(bool) => setUseLocalizedNames(!useLocalizedNames)}
-              useLocalizedNames={useLocalizedNames}
-            />
-          </div>
-        </header>
-        <div className="flex flex-col items-center justify-center" id="content">
-          Wybierz ilość pasażerów:
-          <div className="flex items-center justify-center w-screen my-1">
-            <LuBaby className="mr-1" /> Dzieci
-            <NumberInput
-              onChange={(event) => setKids(Number(event.target.value))}
-              max={100}
-              min={0}
-              defaultValue={0}
-            />
-            <MdFace className="mr-1" /> Dorośli
-            <NumberInput
-              onChange={(event) => setAdults(Number(event.target.value))}
-              max={100}
-              min={0}
-              defaultValue={0}
-            />
-          </div>
-          <div className="flex items-center justify-center w-screen my-1">
-            Podaj imię: <TextInput onChange={(value) => setName(value)} />
-          </div>
-          <div className="flex items-center justify-center w-screen my-1">
-            Podaj nazwisko:{" "}
-            <TextInput onChange={(value) => setLastName(value)} />
-          </div>
-          <div className="flex items-center justify-center w-screen my-1">
-            Podaj adres email:{" "}
-            <TextInput onChange={(value) => setEmail(value)} />
-          </div>
-          <UserDataErrors
-            adults={adults}
-            kids={kids}
-            email={email}
-            firstName={name}
-            lastName={lastName}
-            onErrors={setErrors}
+    <main className="flex flex-col p-4 items-center min-h-screen w-screen dark:bg-slate-900 dark:text-slate-100 bg-slate-100 text-slate-900">
+      <header>
+        <BigHeaderText text="Dane osobowe" />
+        <div
+          className="flex w-screen flex-col md:flex-row items-center justify-center text-xl font-bold text-center p-2"
+          id="tripinfo"
+        >
+          <HeaderText
+            useLocalizedNames={useLocalizedNames}
+            searchParams={useSearchParams()}
+          />
+          <ChangeLocalizationButton
+            onChange={(bool) => setUseLocalizedNames(!useLocalizedNames)}
+            useLocalizedNames={useLocalizedNames}
           />
         </div>
-        <footer className="flex flex-col mt-auto">
-          <Link
-            className={`dark:text-slate-900 text-slate-100 p-1 rounded-md text-center ${
-              errors
-                ? "pointer-events-none cursor-not-allowed bg-slate-400"
-                : "dark:bg-sky-300 bg-sky-500"
-            }`}
-            href={{
-              pathname: "/summary",
-              query: {
-                name: name,
-                lastName: lastName,
-                email: email,
-                kids: kids,
-                adults: adults,
-                from: useSearchParams().get("from"),
-                to: useSearchParams().get("to"),
-                depart: useSearchParams().get("depart"),
-                arrive: useSearchParams().get("arrive"),
-              },
-            }}
-          >
-            Dalej
-          </Link>
-          &copy; 2024, Krzysztof Antonowski
-        </footer>
-      </main>
+      </header>
+      <div className="flex flex-col items-center justify-center" id="content">
+        Wybierz ilość pasażerów:
+        <div className="flex items-center justify-center w-screen my-1">
+          <LuBaby className="mr-1" /> Dzieci
+          <NumberInput
+            onChange={(event) => setKids(Number(event.target.value))}
+            max={100}
+            min={0}
+            defaultValue={0}
+          />
+          <MdFace className="mr-1" /> Dorośli
+          <NumberInput
+            onChange={(event) => setAdults(Number(event.target.value))}
+            max={100}
+            min={0}
+            defaultValue={0}
+          />
+        </div>
+        <div className="flex items-center justify-center w-screen my-1">
+          Podaj imię: <TextInput onChange={(value) => setName(value)} />
+        </div>
+        <div className="flex items-center justify-center w-screen my-1">
+          Podaj nazwisko: <TextInput onChange={(value) => setLastName(value)} />
+        </div>
+        <div className="flex items-center justify-center w-screen my-1">
+          Podaj adres email: <TextInput onChange={(value) => setEmail(value)} />
+        </div>
+        <UserDataErrors
+          adults={adults}
+          kids={kids}
+          email={email}
+          firstName={name}
+          lastName={lastName}
+          onErrors={setErrors}
+        />
+      </div>
+      <footer className="flex flex-col mt-auto">
+        <Link
+          className={`dark:text-slate-900 text-slate-100 p-1 rounded-md text-center ${
+            errors
+              ? "pointer-events-none cursor-not-allowed bg-slate-400"
+              : "dark:bg-sky-300 bg-sky-500"
+          }`}
+          href={{
+            pathname: "/summary",
+            query: {
+              name: name,
+              lastName: lastName,
+              email: email,
+              kids: kids,
+              adults: adults,
+              from: useSearchParams().get("from"),
+              to: useSearchParams().get("to"),
+              depart: useSearchParams().get("depart"),
+              arrive: useSearchParams().get("arrive"),
+            },
+          }}
+        >
+          Dalej
+        </Link>
+        &copy; 2024, Krzysztof Antonowski
+      </footer>
+    </main>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense>
+      <Content />
     </Suspense>
   );
 }
