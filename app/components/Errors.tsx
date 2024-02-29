@@ -73,7 +73,7 @@ export function AirportDateErrors({
       }
       {
         // departure date before today
-        !(departureDate && departureDate > new Date()) ? (
+        departureDate && departureDate <= new Date() ? (
           <div className="flex flex-row items-center justify-center px-2">
             <MdErrorOutline className="mr-1" />
             Dzień wylotu z przeszłości
@@ -82,7 +82,7 @@ export function AirportDateErrors({
       }
       {
         // arrival date before today
-        !(arrivalDate && arrivalDate > new Date()) ? (
+        arrivalDate && arrivalDate <= new Date() ? (
           <div className="flex flex-row items-center justify-center px-2">
             <MdErrorOutline className="mr-1" />
             Dzień przylotu z przeszłości
