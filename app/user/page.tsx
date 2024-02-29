@@ -85,7 +85,14 @@ export default function Page() {
           <div className="flex items-center justify-center w-screen my-1">
             Podaj imię:{" "}
             <input
-              onChange={(event) => setName(event.target.value)}
+              onChange={(event) => {
+                setName(event.target.value);
+                if (name.length != 0) {
+                  setErrors(false);
+                } else {
+                  setErrors(true);
+                }
+              }}
               className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-1/2"
               required
             />
@@ -93,7 +100,14 @@ export default function Page() {
           <div className="flex items-center justify-center w-screen my-1">
             Podaj nazwisko:{" "}
             <input
-              onChange={(event) => setLastName(event.target.value)}
+              onChange={(event) => {
+                setLastName(event.target.value);
+                if (lastName.length != 0) {
+                  setErrors(false);
+                } else {
+                  setErrors(true);
+                }
+              }}
               className="dark:bg-slate-800 bg-slate-200 dark:text-slate-100 text-slate-900 mx-2 rounded-md px-2 py-0.5 w-1/2"
               required
             />
@@ -116,7 +130,7 @@ export default function Page() {
             </div>
           ) : null}
         </div>
-        <footer>
+        <footer className="flex flex-col">
           <Link
             className={`dark:text-slate-900 text-slate-100 p-1 rounded-md text-center ${
               errors
@@ -124,7 +138,7 @@ export default function Page() {
                 : "dark:bg-sky-300 bg-sky-500"
             }`}
             href={{
-              pathname: "/user",
+              pathname: "/summary",
               query: {},
             }}
           >
