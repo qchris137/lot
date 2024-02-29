@@ -16,7 +16,14 @@ export function AirportDateErrors({
   departureAirport,
   departureDate,
 }: AirportDateErrorsProps) {
-  if (!arrivalAirport || !departureAirport || !arrivalDate || !departureDate || departureDate < new Date() || arrivalDate < new Date()) {
+  if (
+    !arrivalAirport ||
+    !departureAirport ||
+    !arrivalDate ||
+    !departureDate ||
+    departureDate < new Date() ||
+    arrivalDate < new Date()
+  ) {
     onErrors(true);
   } else {
     onErrors(false);
@@ -24,14 +31,14 @@ export function AirportDateErrors({
   }
 
   return (
-    <div 
+    <div
       className="flex flex-row items-center justify-center dark:text-red-400 text-red-600"
       id="airportdateerrors"
     >
       {
         // arrival airport not selected
         !arrivalAirport ? (
-          <div className='flex flex-row items-center justify-center px-2'>
+          <div className="flex flex-row items-center justify-center px-2">
             <MdErrorOutline className="mr-1" />
             Nie wybrano miejsca przylotu
           </div>
@@ -40,7 +47,7 @@ export function AirportDateErrors({
       {
         // departure airport not selected
         !departureAirport ? (
-          <div className='flex flex-row items-center justify-center px-2'>
+          <div className="flex flex-row items-center justify-center px-2">
             <MdErrorOutline className="mr-1" />
             Nie wybrano miejsca wylotu
           </div>
@@ -49,7 +56,7 @@ export function AirportDateErrors({
       {
         // arrival date not set
         !arrivalDate ? (
-          <div className='flex flex-row items-center justify-center px-2'>
+          <div className="flex flex-row items-center justify-center px-2">
             <MdErrorOutline className="mr-1" />
             Nie podano dnia przylotu
           </div>
@@ -58,7 +65,7 @@ export function AirportDateErrors({
       {
         // departure date not set
         !departureDate ? (
-          <div className='flex flex-row items-center justify-center px-2'>
+          <div className="flex flex-row items-center justify-center px-2">
             <MdErrorOutline className="mr-1" />
             Nie podano dnia wylotu
           </div>
@@ -66,8 +73,8 @@ export function AirportDateErrors({
       }
       {
         // departure date before today
-        (departureDate && departureDate < new Date()) ? (
-          <div className='flex flex-row items-center justify-center px-2'>
+        departureDate && departureDate <= new Date() ? (
+          <div className="flex flex-row items-center justify-center px-2">
             <MdErrorOutline className="mr-1" />
             Dzień wylotu z przeszłości
           </div>
@@ -75,8 +82,8 @@ export function AirportDateErrors({
       }
       {
         // arrival date before today
-        (arrivalDate && arrivalDate < new Date()) ? (
-          <div className='flex flex-row items-center justify-center px-2'>
+        arrivalDate && arrivalDate <= new Date() ? (
+          <div className="flex flex-row items-center justify-center px-2">
             <MdErrorOutline className="mr-1" />
             Dzień przylotu z przeszłości
           </div>
@@ -84,9 +91,9 @@ export function AirportDateErrors({
       }
       {
         // departure date after arrival date
-        (arrivalDate && departureDate) && (arrivalDate < departureDate) ? (
-          <div className='flex flex-row items-center justify-center px-2'>
-            <MdErrorOutline className='mr-1'/>
+        arrivalDate && departureDate && arrivalDate < departureDate ? (
+          <div className="flex flex-row items-center justify-center px-2">
+            <MdErrorOutline className="mr-1" />
             Błędna data wylotu oraz przylotu
           </div>
         ) : null
