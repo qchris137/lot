@@ -43,8 +43,6 @@ function HeaderText({ useLocalizedNames, searchParams }: any) {
 }
 
 export default function Page() {
-  const searchParams = useSearchParams();
-
   const [useLocalizedNames, setUseLocalizedNames] =
     React.useState<boolean>(true);
   const [errors, setErrors] = React.useState<boolean>(true);
@@ -65,7 +63,7 @@ export default function Page() {
           >
             <HeaderText
               useLocalizedNames={useLocalizedNames}
-              searchParams={searchParams}
+              searchParams={useSearchParams()}
             />
             <ChangeLocalizationButton
               onChange={(bool) => setUseLocalizedNames(!useLocalizedNames)}
@@ -126,10 +124,10 @@ export default function Page() {
                 email: email,
                 kids: kids,
                 adults: adults,
-                from: searchParams.get("from"),
-                to: searchParams.get("to"),
-                depart: searchParams.get("depart"),
-                arrive: searchParams.get("arrive"),
+                from: useSearchParams().get("from"),
+                to: useSearchParams().get("to"),
+                depart: useSearchParams().get("depart"),
+                arrive: useSearchParams().get("arrive"),
               },
             }}
           >

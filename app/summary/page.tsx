@@ -1,22 +1,14 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import BigHeaderText from "../components/BigHeaderText";
 import airports from "@/public/airports.json";
 const airports_list = airports.flatMap((value) => value.airports);
 import "./page.css";
 
-export default function Home() {
+function Content() {
   const searchParams = useSearchParams();
-  const departureAirportIATA = searchParams.get("from");
-  const arrivalAirportIATA = searchParams.get("to");
-
-  const departureAirport = airports_list.find(
-    (value) => value.iata == departureAirportIATA
-  );
-  const arrivalAirport = airports_list.find(
-    (value) => value.iata == arrivalAirportIATA
-  );
 
   return (
     <main className="flex flex-col p-4 items-center justify-between min-h-screen w-screen dark:bg-slate-900 dark:text-slate-100 bg-slate-100 text-slate-900 print:block">
@@ -34,7 +26,12 @@ export default function Home() {
             </td>
             <td>
               <span className="font-thin">
-                {departureAirport?.name} ({departureAirportIATA})
+                {
+                  airports_list.find(
+                    (value) => value.iata == searchParams.get("from")
+                  )?.name
+                }{" "}
+                ({searchParams.get("from")})
               </span>
             </td>
           </tr>
@@ -44,7 +41,12 @@ export default function Home() {
             </td>
             <td>
               <span className="font-thin">
-                {arrivalAirport?.name} ({arrivalAirportIATA})
+                {
+                  airports_list.find(
+                    (value) => value.iata == searchParams.get("to")
+                  )?.name
+                }{" "}
+                ({searchParams.get("to")})
               </span>
             </td>
           </tr>
@@ -133,5 +135,13 @@ export default function Home() {
         &copy; 2024, Krzysztof Antonowski
       </footer>
     </main>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense>
+      <Content />
+    </Suspense>
   );
 }
