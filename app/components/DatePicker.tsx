@@ -1,3 +1,5 @@
+"use client";
+
 import { FaPlaneArrival, FaPlaneDeparture } from "react-icons/fa6";
 
 interface DatePickerProps {
